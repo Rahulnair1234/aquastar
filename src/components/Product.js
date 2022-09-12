@@ -16,6 +16,7 @@ const Product = () => {
   const ref = useRef(null);
   const refClose = useRef(null);
   const refBuy = useRef(null);
+  const desRef=useRef(null);
   const [editproducts, setEditProducts] = useState({
     id: "",
     emodel_no: "",
@@ -34,7 +35,11 @@ const Product = () => {
     company: "",
     selling_price: 0,
   });
-
+  const [des, setDes]=useState("")
+  const viewDescription=(product)=>{
+    setDes(product.description);
+    desRef.current.click();
+  }
   useEffect(() => {
     getAllProducts();
     // eslint-disable-next-line
@@ -101,6 +106,7 @@ const Product = () => {
   };
   const makeOrder = (e) => {
     console.log("created order...");
+    purchaseProduct(buyproducts.pid, buyproducts.address);
     e.preventDefault();
     
 
@@ -148,14 +154,15 @@ const Product = () => {
   const makeBill = (oid, mode) => {
     makeOrderPayment(oid, mode);
   };
-  const doPayment = () => {
+  const doPayment = async() => {
     if (mode.modes === "cod") {
-      purchaseProduct(buyproducts.pid, buyproducts.address);
+     
       alert("Cash on delivery");
+     
       console.log(userorder);
       makeBill(userorder["savedOrder"].oid, mode.modes);
     } else if (mode.modes === "online") {
-      purchaseProduct(buyproducts.pid, buyproducts.address);
+     
       alert("online payment");
       makeBill(userorder["savedOrder"].oid, mode.modes);
       displayRazorpay();
@@ -197,6 +204,7 @@ const Product = () => {
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
+        
       >
         <div className="modal-dialog">
           <div className="modal-content">
@@ -326,6 +334,8 @@ const Product = () => {
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
+        data-bs-backdrop="static" 
+        data-bs-keyboard="false"
       >
         <div className="modal-dialog">
           <div className="modal-content">
@@ -509,7 +519,7 @@ const Product = () => {
                 type="button"
                 onClick={makeOrder}
                 data-bs-toggle="modal"
-                data-bs-target="#exampleModalToggle3"
+                data-bs-target="#staticBackdrop"
               >
                 Payment
               </button>
@@ -518,20 +528,19 @@ const Product = () => {
         </div>
       </div>
       {/*payment method */}
-      <div className="modal" id="exampleModalToggle3" tabindex="-1">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Mode of payment</h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <label htmlFor="mode" className="form-label">
+    
+
+
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Mode of payment</h5>
+      
+      </div>
+      <div class="modal-body">
+      <label htmlFor="mode" className="form-label">
                 Mode :
               </label>
               <select
@@ -544,16 +553,10 @@ const Product = () => {
                 <option value="cod">Cash on delivery</option>
                 <option value="online">Credit/Debit/Upi</option>
               </select>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button
+      </div>
+      <div class="modal-footer">
+      
+        <button
                 type="button"
                 className="btn btn-primary"
                 onClick={doPayment}
@@ -561,10 +564,36 @@ const Product = () => {
               >
                 Finish
               </button>
-            </div>
-          </div>
-        </div>
       </div>
+    </div>
+  </div>
+</div>
+{/*Modal_description*/}
+   
+<button type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal" ref={desRef}>
+  Launch demo modal
+</button>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Description</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {des}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Okay</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+     
 
       <div className="row my-3">
         <h1
@@ -583,6 +612,7 @@ const Product = () => {
                       key={product.pid}
                       buyProduct={buyProduct}
                       product={product}
+                      viewDescription={viewDescription}
                     />
                   ) : (
                     <AdminProductUnit
@@ -590,6 +620,7 @@ const Product = () => {
                       removeProduct={removeProduct}
                       editProduct={editProduct}
                       product={product}
+
                     />
                   )}
                 </div>

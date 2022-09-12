@@ -167,7 +167,7 @@ const AddProduct = () => {
                 value={addproducts.description}
                 onChange={onChange} 
                 placeholder="Enter Description here" 
-                rows={4} cols={60}>
+                rows={4} cols={55}>
                 </textarea>
               </div>
               <div className="mb-3">

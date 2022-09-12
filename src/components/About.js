@@ -1,65 +1,118 @@
-import React from 'react'
-import { useContext } from 'react'
-import productContext from '../context/product/productContext'
+import React from "react";
+import { useContext } from "react";
+import productContext from "../context/product/productContext";
 
 const About = () => {
-  const info=useContext(productContext);
-  const {state}=info;
+  const info = useContext(productContext);
+  const { state } = info;
   return (
     <>
-        <div className='containerHome'>
-            <div className='backgroundHome'>
-            <div className='boostingHome mx-3 '>
-                <h2>Anjali Sales</h2>
-                <p><i>With more than 15 years of experience in the field<br/>
-                      of water purifying.Anjali Sales provides you with <br/> 
-                      top quality products and best services at the most<br/> 
-                      affordable rates.<br/>
-                      From Manufacturing to delivery and then after <br/>
-                      sales services we take care of everything for our customers.<br/>
-                      <b>Our motto is customer satisfaction and safety.</b></i><br/><br/>
-                    </p>
-            </div>
-            <div className='topProductHome'>
-            <h2>Our Top Selling Product</h2>
-                <p><i>Click on the following button to view<br/>
-                      our best selling product.We provide<br/>
-                      5 year warranty with all original <br/>
-                      Anjali products.Our Products are known for<br/>
-                      their sleek design and efficiency.<br/>
-                      Our all products have been tested throughly by group of experts.<br/>
-                      All our products follows the ISI Standard.
-                      </i><br/>
-                    </p>
-                   
-            </div>
-            <div className='ourServicesHome'>
-            <h2>Our Services</h2>
-                <p><i>Anjali sales provides with the best<br/>
-                      after sales services in very affordable rates.<br/>
-                      All Over Mumbai and select parts of Maharashtra.<br/>
-                      We are known for our timely service<br/>
-                      Try for your self, book your first service here.
-                      </i><br/><br/>
-                     
-                    </p>
-                         </div>
-            <div className='ourSubscriptionHome'>
-            <h2>Maintain Your Product</h2>
-                <p><i>Keep your product and health at check<br/>
-                      by subscribing to our annual maintainence plan <br/> 
-                      providing with regular servicing at very affordable rates.
-                      </i><br/><br/>
-                    
-                    </p>
-               </div>
+      <div className="containerAbout">
+        <div className="About1">
+          <div className="topProductAbout  ">
+            <h2>About Our Founder</h2>
+            <p>
+              <i>
+                Our Shop founded by MR.{state.founded} in the year 2012 . <br />
+                He used to work in this background since 2007. <br />
+                Gaining all the experience from his previous company .<br />
+                Within a short span of 5 years he started his own business now
+                known as Anjali Sales
+                <br />
+                Our Founder is the one who set up everything from designing
+                products to manufacturing it .<br />
+                We opened a few more branches in Bhayander and Nagpur.
+                <br />
+                Our manufacturing unit is set up at Nagpur where we have a set
+                of experienced engineers working day and night.
+                <br />
+              </i>
+              <br />
+              <br />
+            </p>
+          </div>
+          <div className="boostingAbout">
+            <h2>Other Branches</h2>
+            <p>
+              <i>
+                Anjali Sales have two more branches excluding
+                <br />
+                our main branch situated at Virar<br/>
+                <br />
+                <p>
+                  <button
+                    class="btn btn-primary1"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample"
+                    aria-expanded="false"
+                    aria-controls="collapseExample"
+                  >
+                    1.Bhayander
+                  </button>
+                </p>
+                <div class="collapse" id="collapseExample">
+                  <div class="card card-body ">
+                   Shop no 21,Satpal Complex,<br/>Near Bhayander West Station.
+                  </div>
+                </div>
 
-        </div>
+                <p>
+                  <button
+                    class="btn btn-primary1"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample1"
+                    aria-expanded="false"
+                    aria-controls="collapseExample1"
+                  >
+                    2.Nagpur
+                  </button>
+                </p>
+                <div class="collapse" id="collapseExample1">
+                  <div class="card card-body ">
+                  Shop no 2,Vinayak Complex,<br/>Near Sabzi Market <br/>pin-486002.
+                  </div>
+                </div>
+              </i>
+              <br />
+            </p>
             
+          </div>
+          <div className="ourServicesAbout">
+            <h2>Our Team</h2>
+            <p>
+              <i>
+                We have a team of 20 well trained professionals 
+                <br />
+                ranging from 2-3 years of experience for servicing products.
+                <br />
+                We provide our services as quickly as possible generally within 24 hrs <br/>
+                all over Western, Central and Harbour Mumbai and select parts of Maharashtra
+                                <br />
+              </i>
+              <br />
+              <br />
+            </p>
+          </div>
+          <div className="ourSubscriptionAbout">
+            <h2>Final Words</h2>
+            <p>
+              <i>
+                We are a small group and we are growing everyday.
+                <br />
+                We look ahead to your feedback and are trying our best to improve our services<br />
+                We launch new products yearly with better efficiency from our previous products.<br/>
+                Contact Us through our email or phone or in whatsapp to let us know your opinion of our products.
+              </i>
+              <br />
+              <br />
+            </p>
+          </div>
         </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default About
-
+export default About;

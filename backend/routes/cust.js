@@ -256,7 +256,7 @@ try {
       $lookup: {
         from: "outservice_pays",
         localField: "outsid",
-        foreignField: "outserviceid",
+        foreignField: "outsid",
         pipeline: [{ $project: { _id: 0 } }],
         as: "PaymentInfo",
       },
@@ -279,7 +279,7 @@ try {
     {
       $lookup: {
         from: "subscription_pays",
-        localField: "_id",
+        localField: "subid",
         foreignField: "subid",
         pipeline: [{ $project: { _id: 0 } }],
         as: "PaymentInfo",

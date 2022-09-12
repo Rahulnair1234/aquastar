@@ -24,7 +24,7 @@ const UserState = (props) => {
       const json = await response.json();
       console.log(json);
       setMyOrders(json);
-      console.log(myorders)
+      console.log("order",myorders)
     };
     //getmyservices
     const getMyServices = async () => {
@@ -39,7 +39,7 @@ const UserState = (props) => {
       const json = await response.json();
       console.log(json);
       setMyServices(json);
-      console.log(myservices)
+      console.log("services",myservices)
     };
     //getmysubscriptions
     const getMySubscriptions = async () => {
@@ -54,7 +54,7 @@ const UserState = (props) => {
       const json = await response.json();
       console.log(json);
       setMySubscriptions(json);
-      console.log(mysubscriptions)
+      console.log("subscriptions",mysubscriptions)
     };
     //get user info
     const getUserInfo = async () => {

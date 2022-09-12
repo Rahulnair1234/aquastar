@@ -20,6 +20,11 @@ const Outservice_payment_Schema = new Schema({
     type: String,
     required: true,
    },
+   date: {
+    type: Date,
+    default: Date.now,
+    required: true,
+  },
   
 });
 

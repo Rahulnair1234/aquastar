@@ -6,6 +6,8 @@ import userContext from '../context/user/userContext'
 const Services = () => {
   const refService=useRef(null);
   const refSubs=useRef(null);
+
+
   const refClose = useRef(null);
   const context1=useContext(userContext)
   const[outservice,setOutservice]=useState({sproduct_name:"water purifier",smodel_no:"",scompany:"",saddress:"",scharge:0})
@@ -18,6 +20,7 @@ const Services = () => {
   const onchange3=(e)=>{//subscription 
     setSubs({ ...subs, [e.target.name]: e.target.value });
   }
+
   const createOutservice=()=>{
      purchaseService(outservice.sproduct_name,outservice.smodel_no,outservice.scompany,outservice.saddress,outservice.scharge);
    
@@ -518,8 +521,8 @@ const Services = () => {
 
       <div className="login-wrap my-5">
   <div className="login-html " >
-    <input id="tab-1" type="radio" name="tab" className="sign-in" /><label htmlFor="tab-1" className="tab"> Service</label>
-    <input id="tab-2" type="radio" name="tab" className="sign-up"/><label htmlFor="tab-2" className="tab">subscription</label>
+    <input id="tab-1" type="radio" name="tab" className="sign-in" defaultChecked/><label htmlFor="tab-1"  className="tab"> Service</label>
+    <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab">subscription</label>
     <div className="login-form">
       <div className="sign-in-htm">
         <div className="group">

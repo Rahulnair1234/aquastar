@@ -1,13 +1,11 @@
 import React from "react";
-import { useRef } from "react";
+
 import {useNavigate } from "react-router-dom";
 const ProductUnit = (props) => {
-  const {product,buyProduct}=props
+  const {product,buyProduct,viewDescription}=props
   let navigate=useNavigate();
-  const desRef=useRef(null);
-  const onClickHandler=(id)=>{
-      desRef.current.click();
-  }
+  
+  
   return (
     <>
       <div className="card bg-c-lite-green" style={{ width: "18rem",height:"35rem" }}>
@@ -17,7 +15,7 @@ const ProductUnit = (props) => {
           height="350"
           className="card-img-top "
           alt="..."    
-          onClick={()=>{onClickHandler(product.pid)}}     
+          onClick={()=>{viewDescription(product)}}    
         />
        
         <div className="card-body bg-c-lite-green text-white">
@@ -38,30 +36,7 @@ const ProductUnit = (props) => {
         </div>
       </div>
 
-      {/*Modal*/}
-   
-<button type="button" class="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal" ref={desRef}>
-  Launch demo modal
-</button>
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+      
     </>
   );
 };
