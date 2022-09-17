@@ -3,7 +3,7 @@ import { useState,useContext } from "react";
 import { useNavigate } from 'react-router-dom' ;
 import productContext from "../context/product/productContext";
 import { Link } from 'react-router-dom';
-const ProvisionalSignUp = () => {
+const SignUp = () => {
     const host = "http://localhost:5000";
   const [credentials, setCredentials] = useState({email: "", password: "",name:"",mobile:"",confirm_password:""}) 
   const navigate = useNavigate();
@@ -48,11 +48,11 @@ const ProvisionalSignUp = () => {
       <div className="sign-in-htm"> 
         <div className="group">
           <label htmlFor="name" className="label">Name</label>
-          <input type="text" className="input" id="name"onChange={onChange} name="name" pattern="^\D*" title="Not a valid name"required minLength={3}/>
+          <input type="text" className="input" id="name"onChange={onChange} name="name" pattern="^\D*" maxLength={30} title="Not a valid name"required minLength={3}/>
         </div>
         <div className="group">
           <label htmlFor="email" className="label">Email id</label>
-          <input type="email" className="input" id="email"onChange={onChange} name="email"/>
+          <input type="email" className="input" id="email"onChange={onChange}maxLength={40} name="email"/>
         </div>
         <div className="group">
           <label htmlFor="mobile" className="label">Mobile</label>
@@ -84,4 +84,4 @@ const ProvisionalSignUp = () => {
   )
 }
 
-export default ProvisionalSignUp
+export default SignUp

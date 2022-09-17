@@ -8,11 +8,8 @@ import ProductState from "./context/product/ProductsState";
 import Admin_Services from "./components/Admin_Services";
 import Admin_home from "./components/Admin_home";
 import Services from "./components/Services";
-import ProvisionalLogin from "./components/ProvisionalLogin";
-import ProvisionalSignUp from "./components/ProvisionalSignUp";
 import ServiceState from "./context/service/ServiceState";
 import AdminSubscriptions from "./components/AdminSubscriptions";
-import MySubscriptions from "./components/MySubscriptions";
 import SubscriptionState from "./context/subscription/SubscriptionState";
 import AdminInservice from "./components/AdminInservice";
 import AdminOrders from "./components/AdminOrders";
@@ -20,6 +17,8 @@ import UserState from "./context/user/UserState";
 import Footer from "./components/Footer";
 import Products from "./components/Products";
 import Homes from "./components/Homes";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 function App() {
   
   return (
@@ -48,9 +47,9 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/services" element={<Services />} />
              
-              <Route path="/prologin" element={<ProvisionalLogin />} />
+              <Route path="/prologin" element={<Login />} />
             
-              <Route path="/prosignup" element={<ProvisionalSignUp/>} />
+              <Route path="/prosignup" element={<SignUp/>} />
               <Route path="/viewSubscriptions"element={<AdminSubscriptions/>}/>
               <Route path="/adminInservice" element={<AdminInservice/>}/>
               <Route path="/admin_orders" element={<AdminOrders/>}/>

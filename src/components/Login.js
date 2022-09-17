@@ -3,7 +3,7 @@ import { useState,useContext } from "react";
 import { useNavigate } from 'react-router-dom' ;
 import productContext from "../context/product/productContext";
 import { Link } from 'react-router-dom';
-const ProvisionalLogin = () => {
+const Login = () => {
     const context = useContext(productContext);
   const{setRoles}=context;
   const host = "http://localhost:5000";
@@ -95,4 +95,4 @@ const ProvisionalLogin = () => {
   )
 }
 
-export default ProvisionalLogin
+export default Login
