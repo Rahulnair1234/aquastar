@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import About from "./components/About";
 import Profile from "./components/Profile";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
 import ProductState from "./context/product/ProductsState"; 
 import Admin_Services from "./components/Admin_Services";
 import Admin_home from "./components/Admin_home";
@@ -49,9 +47,9 @@ function App() {
               <Route path="/about" element={<About />}></Route>
               <Route path="/profile" element={<Profile />} />
               <Route path="/services" element={<Services />} />
-              <Route path="/login" element={<Login />} />
+             
               <Route path="/prologin" element={<ProvisionalLogin />} />
-              <Route path="/signUp" element={<SignUp />} />
+            
               <Route path="/prosignup" element={<ProvisionalSignUp/>} />
               <Route path="/viewSubscriptions"element={<AdminSubscriptions/>}/>
               <Route path="/adminInservice" element={<AdminInservice/>}/>

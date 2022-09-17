@@ -67,6 +67,7 @@ const ProvisionalLogin = () => {
               value={credentials.email}
               onChange={onChange}
               id="email"
+              maxLength={50}
               name="email"/>
         </div>
         <div className="group">
