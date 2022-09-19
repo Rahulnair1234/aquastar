@@ -1,7 +1,7 @@
 import React from 'react'
-import { useState,useContext } from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom' ;
-import productContext from "../context/product/productContext";
+
 import { Link } from 'react-router-dom';
 const SignUp = () => {
     const host = "http://localhost:5000";

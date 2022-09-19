@@ -19,6 +19,7 @@ import Products from "./components/Products";
 import Homes from "./components/Homes";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import Reports from "./components/Reports";
 function App() {
   
   return (
@@ -53,6 +54,7 @@ function App() {
               <Route path="/viewSubscriptions"element={<AdminSubscriptions/>}/>
               <Route path="/adminInservice" element={<AdminInservice/>}/>
               <Route path="/admin_orders" element={<AdminOrders/>}/>
+              <Route path="/reports" element={<Reports/>}/>
 
             </Routes>
             <Footer/>

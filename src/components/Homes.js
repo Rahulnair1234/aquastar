@@ -64,8 +64,9 @@ const Homes = () => {
                       </i><br/><br/>
                       <b><Link to={"/services"} id="link1">Book Service</Link></b>
                     </p>
+                    <div>
                     <img src="https://res.cloudinary.com/dp14ek0mf/image/upload/v1662212092/805204432-01_tnepkv.jpg" height={300}width={300}style={{position: "relative",left: "950px",top: "-100px", opacity:0.8,borderColor:"red",borderWidth:3}}></img>
-            </div>
+                    </div></div>
             <div className='ourSubscriptionHome'>
             <h2>Maintain Your Product</h2>
                 <p><i>Keep your product and health at check<br/>

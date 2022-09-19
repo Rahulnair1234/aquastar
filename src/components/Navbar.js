@@ -66,6 +66,11 @@ const Navbar = () => {
               <li><Link className="nav-link" to={localStorage.getItem('token')?"/profile":"/prologin"}>
                   Profile
                 </Link></li>
+                <li className="nav-item">
+                {roles.role&&<Link className="nav-link" to="/reports">
+                  Reports
+                </Link>}
+              </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/about">
                   About Us

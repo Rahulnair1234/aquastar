@@ -28,11 +28,6 @@ const UserSchema = new Schema({
         required:true,
         default:false
     },
-    date:{
-        type:Date,
-        default:Date.now,
-        required:true
-    },
     
   });
 
