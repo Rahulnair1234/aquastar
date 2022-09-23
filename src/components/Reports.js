@@ -32,9 +32,10 @@ const Reports = () => {
   };
   const handleReport2Print = async () => {
     let demo = document.getElementById("demo");
-    /*for (let index = 0; index < count; index++) {
+    for (let index = 0; index < count; index++) {
       demo.innerHTML +=
-        "<tr>" +
+        
+        "<tr >" +
         "<td>" +
         subs[index].subid +
         "</td>" +
@@ -50,27 +51,24 @@ const Reports = () => {
         "<td>" +
         daysleft[index] +
         "</td>" +
-        "<tr/>"+"<br/><br/>";
-        
-      console.log(subs[index].subid);
-      console.log(demo.innerHTML);
-    }*/
-    for (let index = 0; index < count; index++) {
+        "<tr/>";
+    }
+    /*for (let index = 0; index < count; index++) {
         demo.innerHTML +=
           subs[index].subid +
-        "&emsp; &emsp;"+
+        "&emsp; &emsp;&emsp; &emsp;"+
           subs[index].UserInfo[0].name +
-          "&emsp; &emsp;"+
+          "&emsp; &emsp;&emsp; &emsp;"+
           subs[index].UserInfo[0].mobile +
-          "&emsp; &emsp;"+
+          "&emsp; &emsp;&emsp; &emsp;"+
           expiry[index] +
-          "&emsp; &emsp;"+
+          "&emsp; &emsp;&emsp; &emsp;"+
           daysleft[index] 
          +"<br/><br/>";
           
         console.log(subs[index].subid);
         console.log(demo.innerHTML);
-      }
+      }*/
     await new Promise((r) => setTimeout(r, 1000));
 
     handlePrint2();
@@ -144,7 +142,7 @@ const Reports = () => {
           class="btn btn-primary"
           onClick={handleReport1Print}
         >
-          Generate Sales Report
+           Sales Report
         </button>
         <br />
         <br />
@@ -153,7 +151,7 @@ const Reports = () => {
           class="btn btn-primary"
           onClick={handleReport2Print}
         >
-          Generate Subscription due Report
+           Subscription due Report
         </button>
       </div>
       <div hidden>
@@ -261,16 +259,14 @@ const Reports = () => {
                 </td>
               </tr>
 
-              <tr className="heading">
-                <td>Subid</td>
-                <td>Subscriber Name</td>
-                <td>Contact NO</td>
-                <td>Expiry Date</td>
-                <td>No of days left</td>
-              </tr>
-              
-            </table>
-            <div id="demo"></div>
+              </table>
+              <table id='demo'  >
+             <tr className="heading"><th>Subid</th><th>Subscriber Name</th><th>Contact NO</th><th>Expiry Date</th><th>No of days left</th></tr>
+             </table>
+                
+             
+           
+           
           </div>
         </div>
       </div>

@@ -318,6 +318,7 @@ router.put(
 
       if (status === "CLOSED" && subs.service_no < 3) {
         newProduct.service_no = subs.service_no + 1;
+        
         var tempdate = subs.next_date;
         tempdate = Date.parse(tempdate);
         tempdate.addMonths(4);
@@ -333,7 +334,7 @@ router.put(
           { $set: newProduct },
           { new: true }
         );
-        if (newProduct.service_no !== -1) {
+        if (newProduct.service_no !== -1&& newProduct.service_no!=3) {
           insid = Math.floor(Math.random() * 1000);
           insid = insid_prefix + insid;
           let id1_bool = await Inservice.findOne({ insid: insid });
@@ -541,7 +542,7 @@ router.get("/view_report2",async (req, res) => {
     let days_left_list=[];
     let subscount = await Subscription.aggregate([
       
-      { $match: { service_no:{$eq:0}} },
+      { $match: { service_no:{$eq:2}} },
       { $count: "mycount" },
       
       
@@ -549,7 +550,7 @@ router.get("/view_report2",async (req, res) => {
     ]);
     let subsexpiry = await Subscription.aggregate([
       
-      { $match: { service_no:{$eq:0}} },
+      { $match: { service_no:{$eq:2}} },
       {$project:{_id:0,product_name:0,model_no:0,company:0,subscription_fees:0,address:0,start_date:0}},
       {
         $lookup: {
@@ -587,7 +588,6 @@ router.get("/view_report2",async (req, res) => {
     console.log(days_left_list);
     });
      
-    
     res.send({
   
       subscription: subsexpiry,
