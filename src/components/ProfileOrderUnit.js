@@ -24,15 +24,12 @@ const ProfileOrderUnit = (props) => {
   });
   const handleOrderPrint = async () => {
     console.log("hello");
-    let date = order.date.substring(0, 10);
-    date = Moment(date).format("DD-MM-YYYY");
     setOrderInvoice({
       oid: order.oid,
       billid: order.PaymentInfo[0].o_pay_id,
       uname: user.name,
       mobile: user.mobile,
       address: order.address,
-      date: date,
       product_name: order.ProductInfo[0].product_name,
       model_no: order.ProductInfo[0].model_no,
       company: order.ProductInfo[0].company,
@@ -94,8 +91,6 @@ const ProfileOrderUnit = (props) => {
 
                         <td>
                           Invoice #:{orderinvoice.billid}
-                          <br />
-                          Created: {orderinvoice.date}
                           <br />
                         </td>
                       </tr>

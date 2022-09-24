@@ -19,11 +19,7 @@ const Order_payment_Schema = new Schema({
     type: String,
     required: true,
   },
-  date: {
-    type: Date,
-    default: Date.now,
-    required: true,
-  },
+ 
 });
 
 module.exports = mongoose.model("order_pay", Order_payment_Schema);

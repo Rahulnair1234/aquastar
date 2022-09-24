@@ -25,15 +25,12 @@ const ProfileServiceUnit = (props) => {
   });
   const handleOrderPrint = async() => {
     console.log("hello");
-    let date = service.date.substring(0, 10);
-    date = Moment(date).format("DD-MM-YYYY");
     setServiceInvoice({
       outsid: service.outsid,
       billid: service.PaymentInfo[0].ser_pay_id,
       uname: user.name,
       mobile: user.mobile,
       address: service.address,
-      date: date,
       product_name: service.product_name,
       model_no: service.model_no,
       company: service.company,
@@ -95,8 +92,6 @@ const ProfileServiceUnit = (props) => {
 
                         <td>
                           Invoice #:{serviceinvoice.billid}
-                          <br />
-                          Created: {serviceinvoice.date}
                           <br />
                         </td>
                       </tr>
