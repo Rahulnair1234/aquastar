@@ -32,6 +32,9 @@ const Reports = () => {
   };
   const handleReport2Print = async () => {
     let demo = document.getElementById("demo");
+    demo.innerHTML="";
+    demo.innerHTML="<tr className=\"heading\"><th>Subid</th><th>Subscriber Name</th><th>Contact NO</th><th>Expiry Date</th><th>No of days left</th></tr>"
+            
     for (let index = 0; index < count; index++) {
       demo.innerHTML +=
         
@@ -261,8 +264,7 @@ const Reports = () => {
 
               </table>
               <table id='demo'  >
-             <tr className="heading"><th>Subid</th><th>Subscriber Name</th><th>Contact NO</th><th>Expiry Date</th><th>No of days left</th></tr>
-             </table>
+              </table>
                 
              
            
