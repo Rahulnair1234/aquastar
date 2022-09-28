@@ -77,10 +77,10 @@ function Footer() {
             Useful links
           </h6>
           <p>
-            <Link to="/services" className="text-reset">Service</Link>
+            <Link to={localStorage.getItem('token')?"/services":"/prologin"} className="text-reset">Service</Link>
           </p>
           <p>
-            <Link  to="/services" className="text-reset">Subscription</Link>
+            <Link  to={localStorage.getItem('token')?"/services":"/prologin"} className="text-reset">Subscription</Link>
           </p>
           <p>
             <Link  to="/products" className="text-reset">Browse</Link>

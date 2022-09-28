@@ -6,7 +6,7 @@ const ProductState=(props)=>{
     const host = "http://localhost:5000";
     const state={
         "name":"Anjali Sales and services",
-        "founded":"Kapil",
+        "founded":"Anup Kumar",
         "developer":"Rahul Nair",
         "address":"Anjali Sales & Services,Near Banjara Hotel,Virar west"
     }

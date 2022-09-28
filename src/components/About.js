@@ -10,7 +10,7 @@ const About = () => {
       <div className="containerAbout">
         <div className="About1">
           <div className="topProductAbout  ">
-            <h2>About Our Founder</h2>
+            <h2 style={{marginTop:"100px"}}>About Our Founder</h2>
             <p>
               <i>
                 Our Shop founded by MR.{state.founded} in the year 2012 . <br />

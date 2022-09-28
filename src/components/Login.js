@@ -39,8 +39,6 @@ const Login = () => {
         navigate("/");
       }
      // localStorage.setItem('role',json.role);
-      
-      alert(json.role);
     } else {
       alert("Invalid credentials");
     }
@@ -67,12 +65,12 @@ const Login = () => {
               value={credentials.email}
               onChange={onChange}
               id="email"
-              maxLength={50}
+              maxLength={100}
               name="email"/>
         </div>
         <div className="group">
           <label htmlFor="password" className="label">Password</label>
-          <input  type="password" className="input" data-type="password" value={credentials.password}
+          <input  type="password" className="input" data-type="password" required value={credentials.password}
               onChange={onChange} id="password"
               name="password"/>
         </div>

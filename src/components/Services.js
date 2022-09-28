@@ -114,13 +114,19 @@ const Services = () => {
         document.body.appendChild(script);
       });
     };
+    const onSubmiter=(e)=>{
+      e.preventDefault();
+      onclickhandler();
+    }
+    const onSubmiter2=(e)=>{
+      e.preventDefault();
+      onclickhandler2();
+    }
     const doOutservicePayment=()=>{
       if (mode.modes === "cod") {
-        alert("Cash on delivery");
         makeOutservicerPayment(userservice["savedOutservice"].outsid, mode.modes);
         setOutservice({sproduct_name:"",smodel_no:"",scompany:"",saddress:"",scharge:0});
-      } else if (mode.modes === "online") {
-        alert("online payment");
+
         makeOutservicerPayment(userservice["savedOutservice"].outsid, mode.modes);
         displayRazorpay(outservice.scharge,"Test Transaction for Servicing module",userservice._id,user.name,user.email,user.mobile);
         setOutservice({sproduct_name:"",smodel_no:"",scompany:"",saddress:"",scharge:0});
@@ -128,11 +134,10 @@ const Services = () => {
   } 
   const doSubscriptionPayment=()=>{
     if (mode.modes === "cod") {
-      alert("Cash on delivery");
+   
       makeSubscriptionPayment(usersubscription["savedSubscription"].subid, mode.modes);
       setSubs({subproduct_name:"",submodel_no:"",subcompany:"",subaddress:"",subcharge:0})
     } else if (mode.modes === "online") {
-      alert("online payment");
       makeSubscriptionPayment(usersubscription["savedSubscription"].subid, mode.modes);
       displayRazorpay(subs.subcharge,"Test Transaction for Subscription module",usersubscription.subid,user.name,user.email,user.mobile);
       setSubs({subproduct_name:"",submodel_no:"",subcompany:"",subaddress:"",subcharge:0})
@@ -524,6 +529,7 @@ const Services = () => {
     <input id="tab-1" type="radio" name="tab" className="sign-in" defaultChecked/><label htmlFor="tab-1"  className="tab"> Service</label>
     <input id="tab-2" type="radio" name="tab" className="sign-up" /><label htmlFor="tab-2" className="tab">subscription</label>
     <div className="login-form">
+      <form onSubmit={onSubmiter}>
       <div className="sign-in-htm">
         <div className="group">
           <label htmlFor="sproduct_name" className="label">Product Name</label>
@@ -535,24 +541,26 @@ const Services = () => {
         </div>
         <div className="group">
           <label htmlFor="smodel_no" className="label">Model No</label>
-          <input id="smodel_no" name="smodel_no" value={outservice.smodel_no}  onChange={onchange} type="text" className="input" />
+          <input id="smodel_no" name="smodel_no" value={outservice.smodel_no}  required minLength={5}onChange={onchange} type="text" className="input" />
         </div>
         <div className="group">
           <label htmlFor="scompany" className="label">Company</label>
-          <input id="scompany" name="scompany"type="text" onChange={onchange} value={outservice.scompany}  className="input" />
+          <input id="scompany" name="scompany"type="text" onChange={onchange}  required value={outservice.scompany}  className="input" />
         </div>
         <div className="group">
           <label htmlFor="saddress" className="label">Address</label>
-          <textarea id="saddress"name="saddress" rows={4} type="text"  onChange={onchange} value={outservice.saddress} className="input" ></textarea>
+          <textarea id="saddress"name="saddress" rows={4} type="text"  onChange={onchange} required minLength={5} maxLength={150} value={outservice.saddress} className="input" ></textarea>
         </div>
         
         <div className="group">
-          <input type="submit" className="button"onClick={onclickhandler} value="Create Service Request"/>
+          <input type="submit" className="button"  value="Create Service Request"/>
         </div>
         <div className="hr"></div>
       </div>
+      </form>
 {/**Subscription form */}
       <div className="sign-up-htm">
+        <form onSubmit={onSubmiter2}>
         <div className="group">
           <label htmlFor="subproduct_name" className="label">Product Name</label>
           <select className="form-select input" id="subproduct_name" onChange={onchange3} name="subproduct_name"aria-label="Default select example">
@@ -563,22 +571,24 @@ const Services = () => {
         </div>
         <div className="group">
           <label htmlFor="submodel_no" className="label">Model No</label>
-          <input id="submodel_no"name='submodel_no' value={subs.submodel_no} onChange={onchange3}type="text" className="input" />
+          <input id="submodel_no"name='submodel_no' value={subs.submodel_no} required minLength={5}  onChange={onchange3}type="text" className="input" />
         </div>
         <div className="group">
           <label htmlFor="subcompany" className="label">Company</label>
-          <input id="subcompany"name='subcompany' value={subs.subcompany} type="text" onChange={onchange3}className="input" />
+          <input id="subcompany"name='subcompany' value={subs.subcompany} type="text" required onChange={onchange3}className="input" />
         </div>
         <div className="group">
           <label htmlFor="subaddress" className="label">Address</label>
-          <textarea id="subaddress"name='subaddress' value={subs.subaddress} onChange={onchange3} rows={4} type="text" className="input" ></textarea>
+          <textarea id="subaddress"name='subaddress' value={subs.subaddress} required minLength={5} maxLength={150} onChange={onchange3} rows={4} type="text" className="input" ></textarea>
         </div>
         
         <div className="group">
-          <input type="submit" className="button" onClick={onclickhandler2} value="Create subscription Request"/>
+          <input type="submit" className="button"  value="Create subscription Request"/>
         </div>
         <div className="hr"></div>
+        </form>
       </div>
+      
     </div>
   </div>
 </div>

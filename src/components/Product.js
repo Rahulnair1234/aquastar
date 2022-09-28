@@ -55,7 +55,7 @@ const Product = () => {
       editproducts.eselling_price,
       editproducts.edescription
     );
-    refClose.current.click();
+    ref.current.click();
   };
   const editProduct = (currentProduct) => {
     ref.current.click();
@@ -155,16 +155,11 @@ const Product = () => {
     makeOrderPayment(oid, mode);
   };
   const doPayment = async() => {
-    if (mode.modes === "cod") {
-     
-      alert("Cash on delivery");
-     
+    if (mode.modes === "cod") {     
       console.log(userorder);
       makeBill(userorder["savedOrder"].oid, mode.modes);
     } else if (mode.modes === "online") {
-     
-      alert("online payment");
-      makeBill(userorder["savedOrder"].oid, mode.modes);
+           makeBill(userorder["savedOrder"].oid, mode.modes);
       displayRazorpay();
     }
   };
@@ -198,6 +193,7 @@ const Product = () => {
         data-bs-toggle="modal"
         data-bs-target="#exampleModal1"
       ></button>
+      <form onSubmit={handleClick}>
       <div
         className="modal fade"
         id="exampleModal1"
@@ -232,6 +228,8 @@ const Product = () => {
                   value={editproducts.emodel_no}
                   onChange={onChange}
                   placeholder="Enter text here"
+                  required
+                  minLength={5}
                 />
               </div>
               <div className="mb-3">
@@ -246,6 +244,8 @@ const Product = () => {
                   value={editproducts.ecompany}
                   onChange={onChange}
                   placeholder="Enter text here"
+                  required
+                  minLength={2}
                 />
               </div>
               <div className="mb-3">
@@ -260,6 +260,8 @@ const Product = () => {
                   value={editproducts.equantity}
                   onChange={onChange}
                   placeholder="Enter number here"
+                  pattern='\d'
+                  required
                 />
               </div>
               <div className="mb-3">
@@ -274,6 +276,8 @@ const Product = () => {
                   value={editproducts.eselling_price}
                   onChange={onChange}
                   placeholder="Enter number here"
+                  pattern='\d'
+                  required
                 />
               </div>
               
@@ -289,6 +293,8 @@ const Product = () => {
                   placeholder="Enter text here"
                   value={editproducts.edescription}
                   onChange={onChange}
+                  maxLength={250}
+                  required
                   rows={4}
                   cols={20}
                 />
@@ -304,15 +310,9 @@ const Product = () => {
                 Close
               </button>
               <button
-                type="button"
-                data-bs-dismiss="modal"
-                ref={refClose}
-                disabled={
-                  editproducts.emodel_no.length < 5 ||
-                  editproducts.ecompany.length < 2
-                }
+                type="submit"
                 className="btn btn-primary"
-                onClick={handleClick}
+                
               >
                 Save changes
               </button>
@@ -320,6 +320,7 @@ const Product = () => {
           </div>
         </div>
       </div>
+      </form>
       {/* Buy product modal*/}
       <button
         ref={refBuy}

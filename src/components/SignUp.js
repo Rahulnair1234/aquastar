@@ -7,9 +7,21 @@ const SignUp = () => {
     const host = "http://localhost:5000";
   const [credentials, setCredentials] = useState({email: "", password: "",name:"",mobile:"",confirm_password:""}) 
   const navigate = useNavigate();
- 
+ const check=()=>{
+  if (document.getElementById('password').value ===  document.getElementById('cpassword').value) {
+  document.getElementById('message').style.color = 'green';
+  document.getElementById('message').innerHTML = '&#10004;';
+} else {
+  document.getElementById('message').style.color = 'red';
+  document.getElementById('message').innerHTML = '&#10060;';
+}
+ }
   const handlesubmit = async (e) => {
     e.preventDefault();
+    if (document.getElementById('password').value !==  document.getElementById('cpassword').value) {
+      navigate("/prosignup");
+    } else {
+    
     //API call
     const response = await fetch(`${host}/api/auth/registerUser`, {
       method: "POST",
@@ -32,6 +44,7 @@ const SignUp = () => {
     } else if(json.success===false){
       alert(json.error);
     }
+  }
   };
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -60,11 +73,13 @@ const SignUp = () => {
         </div>
         <div className="group">
           <label htmlFor="password" className="label">Password</label>
-          <input id="password" type="password" className="input" name="password"onChange={onChange} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required data-type="password"/>
+          <input id="password" type="password" className="input" onKeyUp={check}name="password"onChange={onChange} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required data-type="password"/>
         </div>
         <div className="group">
           <label htmlFor="cpassword" className="label">Repeat Password</label>
-          <input type="password" className="input" id="cpassword" onChange={onChange} name="cpassword" minLength={8} required data-type="password"/>
+          <div className='d-flex'>
+          <input type="password" className="input" id="cpassword"onKeyUp={check} onChange={onChange} name="cpassword" minLength={8} required data-type="password"/><span id='message'style={{align:"left"}}></span>
+          </div>
         </div>
         <div className="group">
           <input type="submit" className="button" value="Sign Up"/>

@@ -139,8 +139,8 @@ const Reports = () => {
 
   return (
     <>
-      <div className="container-fluid my-5">
-        <button
+      <div className="container-fluid my-5" >
+        <button style={{marginTop:"100px"}}
           type="button"
           class="btn btn-primary"
           onClick={handleReport1Print}

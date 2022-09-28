@@ -27,8 +27,8 @@ const Homes = () => {
     <>
         <div className='containerHome'>
             <div className='backgroundHome'>
-            <div className='boostingHome mx-3 '>
-                <h2>Anjali Sales</h2>
+            <div className='boostingHome mx-3 'style={{marginTop:"50px"}}>
+                <h2 >Anjali Sales</h2>
                 <div>
                 <i>With more than 15 years of experience in the field<br/>
                       of water purifying.Anjali Sales provides you with <br/> 

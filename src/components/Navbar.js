@@ -12,7 +12,7 @@ const Navbar = () => {
    }
   return (
     <div>
-      {<nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
+      {<nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div className="container-fluid">
           {roles.role?<Link className="navbar-brand" to="/admin_home">
             Anjali-Sales And Services-admin page

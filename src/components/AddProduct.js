@@ -69,6 +69,7 @@ const AddProduct = () => {
       >
        
       </button>
+      <form onSubmit={handleAddproduct}>
       <div
         className="modal fade"
         id="exampleModal"
@@ -76,6 +77,7 @@ const AddProduct = () => {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
+       
         {loading&&<Spinner/>}
         <div className="modal-dialog">
           <div className="modal-content">
@@ -93,8 +95,8 @@ const AddProduct = () => {
             <div className="modal-body">
             <div className="mb-3">
           <label htmlFor="product_name" className="label">Product Name</label>
-          <select className="form-select input" id="product_name" onChange={onchange2} name="product_name"aria-label="Default select example">
-          <option className="text-black" value ="no_data" >select a product</option>
+          <select className="form-select input" id="product_name" required onChange={onchange2} name="product_name"aria-label="Default select example">
+                <option className="text-black"  value ="no_data" >select a product</option>
                 <option className="text-black" value ="water purifier" >Water purifier</option>
                 <option  className="text-black"value="chakki">Chakki (Mill)</option>
                 <option  className="text-black"value="chimney">Chimney</option>
@@ -113,6 +115,8 @@ const AddProduct = () => {
                   value={addproducts.model_no}
                   onChange={onChange}
                   placeholder="Enter text here"
+                  required
+                  minLength={5}
                 />
               </div>
               <div className="mb-3">
@@ -127,6 +131,8 @@ const AddProduct = () => {
                   value={addproducts.company}
                   onChange={onChange}
                   placeholder="Enter text here"
+                  required
+                  minLength={2}
                 />
               </div>
               <div className="mb-3">
@@ -141,6 +147,9 @@ const AddProduct = () => {
                   value={addproducts.quantity}
                   onChange={onChange}
                   placeholder="Enter number here"
+                  pattern='\d'
+                  required
+
                 />
               </div>
               <div className="mb-3">
@@ -154,6 +163,8 @@ const AddProduct = () => {
                   name="selling_price"
                   value={addproducts.selling_price}
                   onChange={onChange}
+                  pattern='\d'
+                  required
                   placeholder="Enter number here"
                 />
               </div>
@@ -167,6 +178,8 @@ const AddProduct = () => {
                 value={addproducts.description}
                 onChange={onChange} 
                 placeholder="Enter Description here" 
+                maxLength={250}
+                required
                 rows={4} cols={55}>
                 </textarea>
               </div>
@@ -199,13 +212,16 @@ const AddProduct = () => {
               >
                 Close
               </button>
-              <button type="button" disabled={addproducts.model_no.length<5||addproducts.company.length<2} className="btn btn-primary"  onClick={handleAddproduct}>
+              <button type="submit" className="btn btn-primary">
                 Save changes
               </button>
             </div>
           </div>
+         
         </div>
+     
       </div>
+      </form>
 
         <div className="row my-3">
               <AddLayout insertProduct={insertProduct}  />
