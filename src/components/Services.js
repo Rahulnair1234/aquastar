@@ -127,6 +127,8 @@ const Services = () => {
         makeOutservicerPayment(userservice["savedOutservice"].outsid, mode.modes);
         setOutservice({sproduct_name:"",smodel_no:"",scompany:"",saddress:"",scharge:0});
 
+      }
+      else{
         makeOutservicerPayment(userservice["savedOutservice"].outsid, mode.modes);
         displayRazorpay(outservice.scharge,"Test Transaction for Servicing module",userservice._id,user.name,user.email,user.mobile);
         setOutservice({sproduct_name:"",smodel_no:"",scompany:"",saddress:"",scharge:0});
@@ -293,17 +295,12 @@ const Services = () => {
         </div>
       </div>
       {/** payment mode modal*/}
-      <div className="modal" id="exampleModalToggle2" tabindex="-1">
+      <div className="modal" id="exampleModalToggle2" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"  aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">Mode of payment</h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+             
             </div>
             <div className="modal-body">
               <label htmlFor="mode" className="form-label">
@@ -482,17 +479,12 @@ const Services = () => {
         </div>
       </div>
       {/** payment mode modal*/}
-      <div className="modal" id="exampleModalToggle22" tabindex="-1">
+      <div className="modal" id="exampleModalToggle22" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"  aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title">Mode of payment</h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
+            
             </div>
             <div className="modal-body">
               <label htmlFor="submode" className="form-label">

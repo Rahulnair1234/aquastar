@@ -542,7 +542,7 @@ router.get("/view_report2",async (req, res) => {
     let days_left_list=[];
     let subscount = await Subscription.aggregate([
       
-      { $match: { service_no:{$eq:2}} },
+      { $match: { service_no:{$eq:3}} },
       { $count: "mycount" },
       
       
@@ -550,7 +550,7 @@ router.get("/view_report2",async (req, res) => {
     ]);
     let subsexpiry = await Subscription.aggregate([
       
-      { $match: { service_no:{$eq:2}} },
+      { $match: { service_no:{$eq:3}} },
       {$project:{_id:0,product_name:0,model_no:0,company:0,subscription_fees:0,address:0,start_date:0}},
       {
         $lookup: {
